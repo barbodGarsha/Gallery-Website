@@ -9,7 +9,13 @@ $color-05: #F3F6F4;
 $white-space-01: 4rem;
 $white-space-02: 2rem;
 
+$font-size-XXL: 3.7rem;
+$font-size-XL: 2rem;
 $font-size-L: 1.2rem;
+
+$border-radius-01: 10px;
+
+$bottom-margin-S: 1rem;
 
 //RESET EVERYTHING-----------------------------------------------
 body {
@@ -40,6 +46,7 @@ li {
 //--------------------------------------------------------------------------------
 
 .header {
+    width: 100%;
     background-color: $color-01;
 
     .header__container {
@@ -66,5 +73,54 @@ li {
 
     .header__my-account-btn:hover {
         color: $color-02;
+    }
+}
+
+
+.hero {
+    width: 100%;
+    background-color: $color-05 ;
+
+    .hero__container {
+        padding: $white-space-02 $white-space-01;
+        display: flex;
+    }
+    .hero__welcome {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 5rem;
+        .hero__welcome-txt {
+            color: $color-01;
+            font-weight: bold;
+            font-size: $font-size-XXL;
+            margin-bottom: $bottom-margin-S;
+        }
+
+        .hero__to-the-gallery_btn {
+            cursor: pointer;
+            width: 17rem;
+            border: 3px solid $color-02;
+            border-radius: $border-radius-01;
+            padding: 1rem;
+        }
+
+        .hero__to-the-gallery_btn:hover {
+            background-color: $color-02;
+        }
+
+        .hero__to-the-gallery_btn__txt {
+            text-align: center;
+            font-size: $font-size-XL;
+        }
+
+    }
+
+    .hero__design {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

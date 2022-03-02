@@ -27,6 +27,7 @@ li {
 }
 
 .header {
+  width: 100%;
   background-color: #333131;
 }
 
@@ -60,5 +61,69 @@ li {
 
 .header .header__my-account-btn:hover {
   color: #C37956;
+}
+
+.hero {
+  width: 100%;
+  background-color: #F3F6F4;
+}
+
+.hero .hero__container {
+  padding: 2rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hero .hero__welcome {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.hero .hero__welcome .hero__welcome-txt {
+  color: #333131;
+  font-weight: bold;
+  font-size: 3.7rem;
+  margin-bottom: 1rem;
+}
+
+.hero .hero__welcome .hero__to-the-gallery_btn {
+  cursor: pointer;
+  width: 17rem;
+  border: 3px solid #C37956;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.hero .hero__welcome .hero__to-the-gallery_btn:hover {
+  background-color: #C37956;
+}
+
+.hero .hero__welcome .hero__to-the-gallery_btn__txt {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hero .hero__design {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=main.css.map */
