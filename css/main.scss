@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+$color-01: #333131;
+$color-02: #C37956;
+$color-03: #C1503D;
+$color-04: #9A989A;
+$color-05: #F3F6F4;
+
+$white-space-01: 4rem;
+$white-space-02: 2rem;
+
+$font-size-L: 1.2rem;
+
+//RESET EVERYTHING-----------------------------------------------
+body {
+    background-color: $color-05;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Poppins', sans-serif;
+}
+a, li, h1, h2, p {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    z-index: 9999;
+}
+
+ul {
+    display: inline;  
+    margin: 0;
+    padding: 0;
+}
+li {
+    display: inline;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+//--------------------------------------------------------------------------------
+
+.header {
+    background-color: $color-01;
+
+    .header__container {
+        padding: $white-space-02 $white-space-01;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logo {
+        color: $color-05;
+        font-weight: bold;
+        font-size: $font-size-L;
+    }
+
+    .header__logo--color-primary {
+        color: $color-02;
+    }
+
+    .header__my-account-btn {
+        color: $color-05;
+        font-size: $font-size-L;
+    }
+
+    .header__my-account-btn:hover {
+        color: $color-02;
+    }
+}

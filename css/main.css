@@ -1,1 +1,64 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+body {
+  background-color: #F3F6F4;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+a, li, h1, h2, p {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  z-index: 9999;
+}
+
+ul {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #333131;
+}
+
+.header .header__container {
+  padding: 2rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .header__logo {
+  color: #F3F6F4;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.header .header__logo--color-primary {
+  color: #C37956;
+}
+
+.header .header__my-account-btn {
+  color: #F3F6F4;
+  font-size: 1.2rem;
+}
+
+.header .header__my-account-btn:hover {
+  color: #C37956;
+}
+/*# sourceMappingURL=main.css.map */
