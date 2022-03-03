@@ -6,6 +6,8 @@ $color-03: #C1503D;
 $color-04: #9A989A;
 $color-05: #F3F6F4;
 
+$color-05-A30: rgba(#F3F6F4, 0.3);
+
 $white-space-01: 4rem;
 $white-space-02: 2rem;
 
@@ -16,7 +18,13 @@ $font-size-L: 1.2rem;
 $border-radius-01: 10px;
 
 $bottom-margin-S: 1rem;
-$top-margin-S: .2rem;
+$bottom-margin-XS: .5rem;
+
+$top-margin-XS: .2rem;
+$right-margin-XS: .2rem;
+
+$tag-padding-up-down: .4rem;
+$tag-padding-left-right: .9rem;
 
 //RESET EVERYTHING-----------------------------------------------
 body {
@@ -144,6 +152,34 @@ li {
 }
 
 .tag {
+    position: relative;
+    display: inline-block;
+    background-color: $color-05-A30;
+    padding: $tag-padding-up-down $tag-padding-left-right;
+    border-radius: $border-radius-01;
+
+    margin-bottom: $bottom-margin-S;
+    margin-right: $right-margin-XS;
+    .tag__close-btn {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%);
+        background-color: $color-05-A30;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 80%
+    }
+
+    .tag__txt {
+        text-align: center;
+        margin: auto;
+    }
 }
 
 .gallery {
@@ -162,7 +198,7 @@ li {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: $top-margin-S;
+            margin-top: $top-margin-XS;
             margin-bottom: $bottom-margin-S;
         }
         
