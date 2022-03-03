@@ -16,6 +16,7 @@ $font-size-L: 1.2rem;
 $border-radius-01: 10px;
 
 $bottom-margin-S: 1rem;
+$top-margin-S: .2rem;
 
 //RESET EVERYTHING-----------------------------------------------
 body {
@@ -24,6 +25,7 @@ body {
     padding: 0;
 
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 a, li, h1, h2, p {
     text-decoration: none;
@@ -132,4 +134,45 @@ li {
     width: 100%;
     height: 5rem;
     background-color: $color-01;
+}
+
+
+//Gallery Page
+
+.search-bar {
+    width: 100%;
+}
+
+.tag {
+}
+
+.gallery {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    .gallery__sidebar {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $color-01;
+
+        .gallery__search-container {
+            width: 95%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: $top-margin-S;
+            margin-bottom: $bottom-margin-S;
+        }
+        
+        .gallery__tag-container {
+            width: 95%;
+        }
+    }
+
+    .gallery__viewer {
+        width: 80%;
+        background-color: aqua;
+    }
 }
