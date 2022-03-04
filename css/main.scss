@@ -20,6 +20,7 @@ $border-radius-01: 10px;
 $bottom-margin-S: 1rem;
 $bottom-margin-XS: .5rem;
 
+$top-margin-M: 1rem;
 $top-margin-S: .5rem;
 $top-margin-XS: .2rem;
 
@@ -193,6 +194,24 @@ li {
     }
 }
 
+.photos-grid {
+    width: 100%;
+    height: 100%;
+
+    background-color: $color-05;
+    display: grid;
+    grid-template-columns: 25rem 25rem 25rem;
+    grid-template-rows: 25rem 25rem 25rem;
+    grid-gap: 1rem;
+
+    justify-content: center;
+    overflow-y: scroll;
+
+    .photos-grid__item {
+        background-color: $color-04;
+    }
+}
+
 .gallery {
     width: 100vw;
     height: 100vh;
@@ -219,6 +238,7 @@ li {
     }
 
     .gallery__viewer {
+        margin-top: $top-margin-M;
         width: 80%;
         background-color: $color-05;
     }

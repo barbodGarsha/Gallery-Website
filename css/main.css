@@ -185,6 +185,27 @@ li {
   margin: auto;
 }
 
+.photos-grid {
+  width: 100%;
+  height: 100%;
+  background-color: #F3F6F4;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 25rem 25rem 25rem;
+      grid-template-columns: 25rem 25rem 25rem;
+  -ms-grid-rows: 25rem 25rem 25rem;
+      grid-template-rows: 25rem 25rem 25rem;
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: scroll;
+}
+
+.photos-grid .photos-grid__item {
+  background-color: #9A989A;
+}
+
 .gallery {
   width: 100vw;
   height: 100vh;
@@ -228,6 +249,7 @@ li {
 }
 
 .gallery .gallery__viewer {
+  margin-top: 1rem;
   width: 80%;
   background-color: #F3F6F4;
 }
