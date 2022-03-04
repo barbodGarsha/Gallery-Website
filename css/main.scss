@@ -20,11 +20,16 @@ $border-radius-01: 10px;
 $bottom-margin-S: 1rem;
 $bottom-margin-XS: .5rem;
 
+$top-margin-S: .5rem;
 $top-margin-XS: .2rem;
+
 $right-margin-XS: .2rem;
 
 $tag-padding-up-down: .4rem;
 $tag-padding-left-right: .9rem;
+
+$search-bar-padding-up-down: .4rem;
+$search-bar-padding-left-right: .9rem;
 
 //RESET EVERYTHING-----------------------------------------------
 body {
@@ -149,6 +154,12 @@ li {
 
 .search-bar {
     width: 100%;
+    border: none;
+    outline: none;
+    border-radius: $border-radius-01;
+    font-size: $font-size-L;
+    padding: $search-bar-padding-up-down $search-bar-padding-left-right;
+    color: $color-01;
 }
 
 .tag {
@@ -198,7 +209,7 @@ li {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: $top-margin-XS;
+            margin-top: $top-margin-S;
             margin-bottom: $bottom-margin-S;
         }
         
@@ -209,6 +220,6 @@ li {
 
     .gallery__viewer {
         width: 80%;
-        background-color: aqua;
+        background-color: $color-05;
     }
 }
