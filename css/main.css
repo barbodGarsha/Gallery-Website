@@ -138,6 +138,25 @@ li {
 }
 
 .search-bar {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*
+   .search-bar__recommendations::-webkit-scrollbar {
+    display: none;
+    }
+   */
+}
+
+.search-bar .search-bar__input {
   width: 100%;
   border: none;
   outline: none;
@@ -145,6 +164,39 @@ li {
   font-size: 1.2rem;
   padding: 0.4rem 0.9rem;
   color: #333131;
+  z-index: 99;
+}
+
+.search-bar .search-bar__recommendations {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #9A989A;
+  overflow: hidden;
+  overflow-y: scroll;
+  /*
+        -ms-overflow-style: none;  // IE and Edge 
+        scrollbar-width: none;  // Firefox 
+        */
+  max-height: 15rem;
+  z-index: 9;
+}
+
+.search-bar .search-bar__recommendations .search-bar__recommendations__container {
+  font-size: 1.2rem;
+  color: #333131;
+  margin-top: 1rem;
+}
+
+.search-bar .search-bar__recommendations .search-bar__recommendations__container .search-bar__recommendations__item {
+  cursor: pointer;
+  padding: 0.4rem 0.9rem;
+}
+
+.search-bar .search-bar__recommendations .search-bar__recommendations__container .search-bar__recommendations__item:hover {
+  background-color: #C37956;
 }
 
 .tag {
