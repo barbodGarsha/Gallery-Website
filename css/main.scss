@@ -32,6 +32,11 @@ $tag-padding-left-right: .9rem;
 $search-bar-padding-up-down: .4rem;
 $search-bar-padding-left-right: .9rem;
 
+$photos-size: 25rem;
+$photos-grid-gab: 0.3rem;
+$photos-grid-size: 76rem; //(photos-size + photos-grid-gab) * 3
+
+
 //RESET EVERYTHING-----------------------------------------------
 body {
     background-color: $color-05;
@@ -195,20 +200,26 @@ li {
 }
 
 .photos-grid {
-    width: 100%;
-    height: 100%;
-
-    background-color: $color-05;
-    display: grid;
-    grid-template-columns: 25rem 25rem 25rem;
-    grid-template-rows: 25rem 25rem 25rem;
-    grid-gap: 1rem;
-
-    justify-content: center;
-    overflow-y: scroll;
-
+    background-color: transparent;
+    
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    width:  $photos-grid-size;
+    
     .photos-grid__item {
+        margin: $photo-grid-gab;
+        width: $photos-size;
+        height: $photos-size;
+        
         background-color: $color-04;
+        border-radius: $border-radius-01;
+        overflow: hidden;
+        .photos-grid__img {
+            flex-shrink: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
     }
 }
 
@@ -241,5 +252,8 @@ li {
         margin-top: $top-margin-M;
         width: 80%;
         background-color: $color-05;
+        display: flex;
+        justify-content: center;  
+        overflow-y: scroll;
     }
 }
