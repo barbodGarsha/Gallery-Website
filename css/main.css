@@ -200,10 +200,10 @@ li {
 }
 
 .photos-grid .photos-grid__item {
+  cursor: pointer;
   margin: 0.3rem;
   width: 25rem;
   height: 25rem;
-  background-color: #9A989A;
   border-radius: 10px;
   overflow: hidden;
 }

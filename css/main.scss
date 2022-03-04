@@ -34,7 +34,7 @@ $search-bar-padding-left-right: .9rem;
 
 $photos-size: 25rem;
 $photos-grid-gab: 0.3rem;
-$photos-grid-size: 76rem; //(photos-size + photos-grid-gab) * 3
+$photos-grid-size: 77rem; //(photos-size + photos-grid-gab) * 3 + 1rem
 
 
 //RESET EVERYTHING-----------------------------------------------
@@ -208,14 +208,15 @@ li {
     width:  $photos-grid-size;
     
     .photos-grid__item {
-        margin: $photo-grid-gab;
+        cursor: pointer; 
+        margin: $photos-grid-gab;
         width: $photos-size;
         height: $photos-size;
-        
-        background-color: $color-04;
         border-radius: $border-radius-01;
         overflow: hidden;
+        
         .photos-grid__img {
+            
             flex-shrink: 0;
             min-width: 100%;
             min-height: 100%;
