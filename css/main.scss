@@ -175,6 +175,8 @@ li {
         z-index: 99;
    }
 
+
+   //NOTE: I won't use the SCSS vars for the margins and max-height in this section for now
    .search-bar__recommendations {
         position: absolute;   
         top: 1rem;
@@ -206,6 +208,8 @@ li {
                 background-color: #C37956;
             }
         }
+
+        display: none;
    }
    //NOTE to hide scroll bar
    /*

@@ -182,6 +182,7 @@ li {
         */
   max-height: 15rem;
   z-index: 9;
+  display: none;
 }
 
 .search-bar .search-bar__recommendations .search-bar__recommendations__container {
