@@ -215,6 +215,29 @@ li {
   min-height: 100%;
 }
 
+.photos-grid .photos-grid__item--empty {
+  background-color: #9A989A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photos-grid .photos-grid__item--empty .photos-grid__upload {
+  font-size: 1.2rem;
+  color: #F3F6F4;
+}
+
+.photos-grid .photos-grid__item--empty:hover .photos-grid__upload {
+  color: #333131;
+  font-weight: bold;
+}
+
 .gallery {
   width: 100vw;
   height: 100vh;

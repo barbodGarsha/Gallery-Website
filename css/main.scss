@@ -222,6 +222,23 @@ li {
             min-height: 100%;
         }
     }
+
+    .photos-grid__item--empty {
+        background-color: $color-04;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .photos-grid__upload {
+            font-size: $font-size-L;
+            color: $color-05;
+        }
+    }
+    .photos-grid__item--empty:hover {
+        .photos-grid__upload {
+            color: $color-01;
+            font-weight: bold;
+        }
+    }
 }
 
 .gallery {
