@@ -33,8 +33,8 @@ $search-bar-padding-up-down: .4rem;
 $search-bar-padding-left-right: .9rem;
 
 $photos-size: 25rem;
-$photos-grid-gab: 0.3rem;
-$photos-grid-size: 77rem; //(photos-size + photos-grid-gab) * 3 + 1rem
+$photos-grid-gab: 1rem;
+$photos-grid-size: 81rem; //(photos-size * 3) + (photos-grid-gab * 6)
 
 
 //RESET EVERYTHING-----------------------------------------------

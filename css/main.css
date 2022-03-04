@@ -196,12 +196,12 @@ li {
           flex-flow: row wrap;
   -ms-flex-line-pack: start;
       align-content: flex-start;
-  width: 77rem;
+  width: 81rem;
 }
 
 .photos-grid .photos-grid__item {
   cursor: pointer;
-  margin: 0.3rem;
+  margin: 1rem;
   width: 25rem;
   height: 25rem;
   border-radius: 10px;
