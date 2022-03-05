@@ -23,7 +23,9 @@ tag_container.addEventListener('click', function(e) {
         //      also the filter "list" needs to change
     }
 })
-console.log("WORKING")
+
+
+//TODO: not being able to add the same tag again
 search_bar__recs.addEventListener('mousedown', function(e){
     if(e.target.hasAttribute('data-search-bar__recommendations__item')) { 
         filter = get_tag_by_id(e.target.id)
