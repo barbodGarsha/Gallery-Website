@@ -23,9 +23,16 @@ tag_container.addEventListener('click', function(e) {
         //      also the filter "list" needs to change
     }
 })
-
+console.log("WORKING")
 search_bar__recs.addEventListener('mousedown', function(e){
-    if(e.target.hasAttribute('data-search-bar__recommendations__item')) { console.log(e.target.id)}
+    if(e.target.hasAttribute('data-search-bar__recommendations__item')) { 
+        filter = get_tag_by_id(e.target.id)
+        const tag = document.importNode(tag_template.content, true)
+        const tag_p = tag.querySelector('[data-tag__txt]')   
+        tag_p.id = filter.id
+        tag_p.innerText = filter.name
+        tag_container.appendChild(tag)
+    }
 })
 
 search_bar__input.addEventListener('focus', function(e){
@@ -93,6 +100,12 @@ function clear_element(element)
 
 function is_empty_or_spaces(str){
     return str === null || str.match(/^ *$/) !== null;
+}
+
+function get_tag_by_id(id) {
+    for (i = 0; i < tags.length; i++) {
+        if (tags[i].id == id) { return tags[i] }
+    }
 }
 
 
