@@ -1,11 +1,13 @@
 //TEMPLATES
 const results_template = document.getElementById('results-template')
+const tag_template = document.getElementById('tag-template')
+
 
 const search_bar__input = document.querySelector('[data-search-bar__input]')
 const search_bar__recs = document.querySelector('[data-search-bar__recommendations]')
 const search_bar__recs__conatiner = document.querySelector('[data-search-bar__recommendations__container]')
 
-
+const tag_container = document.querySelector('[data-gallery__tag-container]')
 
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
 //let tags = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TAGS)) || []
@@ -14,6 +16,14 @@ const search_bar__recs__conatiner = document.querySelector('[data-search-bar__re
 let tags = [{id: 'CATS', name: 'Cats'}, {id: 'DOGS', name: 'Dogs'}]
 
 //EVENTS
+tag_container.addEventListener('click', function(e) {
+    if(e.target.hasAttribute('data-tag__close-btn')) {
+        e.target.parentElement.remove()
+        //TODO: Tags filter changes and the photos that are being shown need to change
+        //      also the filter "list" needs to change
+    }
+})
+
 search_bar__recs.addEventListener('mousedown', function(e){
     if(e.target.hasAttribute('data-search-bar__recommendations__item')) { console.log(e.target.id)}
 })
