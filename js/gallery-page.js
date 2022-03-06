@@ -15,25 +15,29 @@ const tag_container = document.querySelector('[data-gallery__tag-container]')
 //TESTING...
 let tags = [{id: 'CATS', name: 'Cats'}, {id: 'DOGS', name: 'Dogs'}]
 
+let chosen_tags = []
+
 //EVENTS
 tag_container.addEventListener('click', function(e) {
     if(e.target.hasAttribute('data-tag__close-btn')) {
+        const tag_p = e.target.parentElement.querySelector('[data-tag__txt]')
+        remove_filter_by_id(tag_p.id)
         e.target.parentElement.remove()
-        //TODO: Tags filter changes and the photos that are being shown need to change
-        //      also the filter "list" needs to change
+       //TODO: Tags filter changes and the photos that are being shown need to change
     }
 })
 
-
-//TODO: not being able to add the same tag again
 search_bar__recs.addEventListener('mousedown', function(e){
     if(e.target.hasAttribute('data-search-bar__recommendations__item')) { 
         filter = get_tag_by_id(e.target.id)
-        const tag = document.importNode(tag_template.content, true)
-        const tag_p = tag.querySelector('[data-tag__txt]')   
-        tag_p.id = filter.id
-        tag_p.innerText = filter.name
-        tag_container.appendChild(tag)
+        if(chosen_tags.filter(function(e) { return e.id === filter.id }).length < 1) {    
+            chosen_tags.push(filter)
+            const tag = document.importNode(tag_template.content, true)
+            const tag_p = tag.querySelector('[data-tag__txt]')   
+            tag_p.id = filter.id
+            tag_p.innerText = filter.name
+            tag_container.appendChild(tag)
+        }
     }
 })
 
@@ -109,5 +113,15 @@ function get_tag_by_id(id) {
         if (tags[i].id == id) { return tags[i] }
     }
 }
+
+
+function remove_filter_by_id(id) {
+    for (i = 0; i < chosen_tags.length; i++) {
+        if (chosen_tags[i].id == id) { 
+            chosen_tags.splice(i, 1);
+        }
+    }
+}
+
 
 
