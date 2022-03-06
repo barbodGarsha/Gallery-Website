@@ -266,6 +266,8 @@ li {
       flex-shrink: 0;
   min-width: 100%;
   min-height: 100%;
+  max-width: 150%;
+  max-height: 150%;
 }
 
 .photos-grid .photos-grid__item--empty {
