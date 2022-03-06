@@ -1,6 +1,8 @@
 //TEMPLATES
 const results_template = document.getElementById('results-template')
 const tag_template = document.getElementById('tag-template')
+const photos_grid__item = document.getElementById('photos-grid__item-template')
+const photos_grid__upload = document.getElementById('photos-grid__upload-template')
 
 
 const search_bar__input = document.querySelector('[data-search-bar__input]')
@@ -9,13 +11,15 @@ const search_bar__recs__conatiner = document.querySelector('[data-search-bar__re
 
 const tag_container = document.querySelector('[data-gallery__tag-container]')
 
+const photos_grid = document.querySelector('[data-gallery__viewer__photos-grid]')
+
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
 //let tags = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TAGS)) || []
 
 //TESTING...
-let tags = [{id: 'CATS', name: 'Cats'}, {id: 'DOGS', name: 'Dogs'}]
-
+let tags = [{id: 'CATS', name: 'ABSTRACT'}, {id: 'DOGS', name: 'ART'}]
 let chosen_tags = []
+let photos = [{id: '1', tags: ['ABSTRACT', 'ART'], src: 'images/Test.jpeg'}, {id: '1', tags: ['ABSTRACT', 'ART'], src: 'images/Test.jpeg'}]
 
 //EVENTS
 tag_container.addEventListener('click', function(e) {
@@ -97,6 +101,23 @@ function render_search_results(filter) {
     }
 }
 
+function render_gallery_viewer(filters) {
+    clear_element(photos_grid)
+
+    const upload = document.importNode(photos_grid__upload.content, true)
+    photos_grid.appendChild(upload)
+
+    for (i = 0; i < photos.length; i++) {
+        const item = document.importNode(photos_grid__item.content, true)
+        const item_img = item.querySelector('[data-photos-grid__img]')   
+        item.id = photos[i].id
+        item_img.src = photos[i].src
+        photos_grid.appendChild(item)
+    }
+}
+
+render_gallery_viewer('')
+
 function clear_element(element)
 {
     while (element.firstChild) {
@@ -122,6 +143,5 @@ function remove_filter_by_id(id) {
         }
     }
 }
-
 
 

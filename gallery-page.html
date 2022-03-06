@@ -34,51 +34,7 @@
         </div>
 
         <div class="gallery__viewer">
-            <div class="photos-grid">
-                 
-                <div class="photos-grid__item photos-grid__item--empty">
-                    <p class="photos-grid__upload">Upload a Photo</p>
-                </div>
-               
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-               
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
-                <div class="photos-grid__item">
-                    <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img">
-                </div>
-                
+            <div class="photos-grid" data-gallery__viewer__photos-grid>               
             </div>
         </div>
     </div>
@@ -91,6 +47,18 @@
         <div class="tag" data-tag>
             <div class="tag__close-btn" data-tag__close-btn>X</div>
             <p class="tag__txt" data-tag__txt></p>
+        </div>
+    </template>
+
+    <template id="photos-grid__item-template">
+        <div class="photos-grid__item" data-photos-grid__item>
+            <img src="images/Test.jpeg" alt="Photo" class="photos-grid__img" data-photos-grid__img>
+        </div>
+    </template>
+
+    <template id="photos-grid__upload-template">
+        <div class="photos-grid__item photos-grid__item--empty">
+            <p class="photos-grid__upload">Upload a Photo</p>
         </div>
     </template>
 </body>
