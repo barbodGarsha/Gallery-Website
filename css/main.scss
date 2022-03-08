@@ -377,10 +377,21 @@ li {
 
     .upload__btn {
         cursor: pointer;
+        position: relative;
         background-color: $color-04;
         color: $color-05;
         border-radius: $border-radius-01;
         padding: $container-padding-up-down $container-padding-left-right;
+        overflow: hidden;
+        .upload__btn__file-input {    
+            cursor: pointer;
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -100%;
+            left: -100%;
+            opacity: 0;  
+        }
     }
     .upload__btn--has-bottom-margin {
         margin-bottom: $bottom-margin-XS;
@@ -424,4 +435,7 @@ li {
         justify-content: space-between;
         
     }
+}
+.upload--hide {
+    display: none;
 }

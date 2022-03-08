@@ -40,11 +40,13 @@
     </div>
   
 
-    <div class="upload">
+    <div class="upload upload--hide" data-upload>
         <div class="upload__container">
             <div class="upload__top">
                 <div class="upload__inputs">
+                    
                     <div class="upload__btn upload__btn--has-bottom-margin">
+                        <input class="upload__btn__file-input"type="file" data-upload__btn__file-input/>
                         <p class="upload__btn__txt">Upload a Photo</p>
                     </div>
                     <div class="upload__name">
@@ -78,7 +80,7 @@
            
 
             <div class="upload__btn">
-                <p class="upload__btn__txt">Save</p>
+                <p class="upload__btn__txt" data-upload__save-btn>Save</p>
             </div>
         </div>
     </div>
@@ -101,7 +103,7 @@
     </template>
 
     <template id="photos-grid__upload-template">
-        <div class="photos-grid__item photos-grid__item--empty">
+        <div class="photos-grid__item photos-grid__item--empty" data-upload-a-photo>
             <p class="photos-grid__upload">Upload a Photo</p>
         </div>
     </template>

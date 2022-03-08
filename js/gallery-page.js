@@ -13,15 +13,47 @@ const tag_container = document.querySelector('[data-gallery__tag-container]')
 
 const photos_grid = document.querySelector('[data-gallery__viewer__photos-grid]')
 
+const uplaod = document.querySelector('[data-upload]')
+const uplaod_input = document.querySelector('[data-upload__btn__file-input]')
+
+
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
 //let tags = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TAGS)) || []
 
 //TESTING...
-let tags = [{id: 'ABSTRACT', name: 'Abstract'}, {id: 'ART', name: 'Art'}]
+let tags = [{id: 'ABSTRACT', name: 'Abstract'}, {id: 'ART', name: 'Art'}, {id: 'TEST', name: 'Test'}]
 let chosen_tags = []
-let photos = [{id: '1', tags: ['ABSTRACT', 'ART'], src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], src: 'images/Test02.jpg'}]
+let photos = [{id: '1', tags: ['ABSTRACT', 'ART'], name: 'Test', src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], name: 'Test2', src: 'images/Test02.jpg'}]
+
+let uploaded_file
+
+//MAIN
+
+render_gallery_viewer(chosen_tags)
+
+
 
 //EVENTS
+uplaod_input.addEventListener('change', function(e) {
+    uploaded_file = 'http://127.0.0.1:8887/' + e.target.value.split(/(\\|\/)/g).pop() 
+})
+
+uplaod.addEventListener('click', function(e) {  
+    if(e.target.hasAttribute('data-upload__save-btn')) {
+        if(uplaod_input.files.length == 1) {    
+            photos.push(create_photo(Date.now.toString(), uploaded_file, ['TEST', 'ART']))
+        }
+        uplaod.classList.add('upload--hide')
+        render_gallery_viewer(chosen_tags)
+    } 
+})
+
+photos_grid.addEventListener('click', function(e) {
+    if(e.target.hasAttribute('data-upload-a-photo')) {
+        uplaod.classList.remove('upload--hide')
+    }    
+})
+
 tag_container.addEventListener('click', function(e) {
     if(e.target.hasAttribute('data-tag__close-btn')) {
         const tag_p = e.target.parentElement.querySelector('[data-tag__txt]')
@@ -69,6 +101,11 @@ search_bar__input.addEventListener('input', function(e) {
 
 function create_tag(name) {
     return { id: name.toUpperCase(), name: name}
+}
+
+function create_photo(photo_name, path, photo_tags) {
+            //{id: '1', tags: ['ABSTRACT', 'ART'], name: 'Test', src: 'images/Test.jpeg'}
+    return { id: Date.now().toString(), tags: photo_tags, name: photo_name, src: path }
 }
 
 //TODO: better system for search results is needed
@@ -158,9 +195,3 @@ function check_tags(img, filters) {
     }
     return matched
 }
-
-
-
-//MAIN
-
-render_gallery_viewer(chosen_tags)
