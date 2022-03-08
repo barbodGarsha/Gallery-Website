@@ -405,7 +405,7 @@ li {
           align-items: center;
 }
 
-.upload .upload__top {
+.upload .upload__inputs {
   margin-bottom: 1rem;
 }
 
@@ -415,6 +415,9 @@ li {
   color: #F3F6F4;
   border-radius: 10px;
   padding: 0.4rem 0.9rem;
+}
+
+.upload .upload__btn--has-bottom-margin {
   margin-bottom: 0.5rem;
 }
 
@@ -439,7 +442,7 @@ li {
   border-radius: 10px;
   font-size: 1.2rem;
   padding: 0.4rem 0.9rem;
-  color: #F3F6F4;
+  color: #333131;
   z-index: 99;
 }
 
@@ -465,5 +468,15 @@ li {
   height: 50%;
   border-radius: 10px;
   padding: 2rem 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 /*# sourceMappingURL=main.css.map */
