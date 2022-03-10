@@ -15,6 +15,7 @@ const photos_grid = document.querySelector('[data-gallery__viewer__photos-grid]'
 
 const uplaod = document.querySelector('[data-upload]')
 const uplaod_input = document.querySelector('[data-upload__btn__file-input]')
+const uplaod_close_btn = document.querySelector('[data-upload__close-btn]')
 
 
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
@@ -34,6 +35,11 @@ render_gallery_viewer(chosen_tags)
 
 
 //EVENTS
+uplaod_close_btn.addEventListener('click', function(e) {
+    uplaod.classList.add('upload--hide')
+    //TODO: reset upload form 
+})
+
 uplaod_input.addEventListener('change', function(e) {
     uploaded_file = 'http://127.0.0.1:8887/' + e.target.value.split(/(\\|\/)/g).pop() 
 })

@@ -433,8 +433,27 @@ li {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        position: relative;
+
         
+        .upload__close-btn {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: translate(50%, -50%);
+            background-color: $color-01-A70;
+            color: $color-05;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem
+        }
     }
+
 }
 .upload--hide {
     display: none;
