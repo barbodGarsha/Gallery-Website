@@ -183,10 +183,10 @@ li {
     }
 }
 
-.hero-design-part--animation-down {
+.hero__design-part--animation-down {
     animation: hero-design-load-down $load-animation-ms ease-out forwards;
 }
-.hero-design-part--animation-up {
+.hero__design-part--animation-up {
     animation: hero-design-load-up $load-animation-ms ease-out forwards;
 }
 

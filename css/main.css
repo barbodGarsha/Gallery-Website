@@ -194,12 +194,12 @@ li {
           transform: scale(1.05);
 }
 
-.hero-design-part--animation-down {
+.hero__design-part--animation-down {
   -webkit-animation: hero-design-load-down 500ms ease-out forwards;
           animation: hero-design-load-down 500ms ease-out forwards;
 }
 
-.hero-design-part--animation-up {
+.hero__design-part--animation-up {
   -webkit-animation: hero-design-load-up 500ms ease-out forwards;
           animation: hero-design-load-up 500ms ease-out forwards;
 }
