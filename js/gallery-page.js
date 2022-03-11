@@ -260,8 +260,10 @@ function render_gallery_viewer(filters) {
         if(check_tags(photos[i], filters)) {
             const item = document.importNode(photos_grid__item.content, true)
             const item_img = item.querySelector('[data-photos-grid__img]')   
+            const item_name = item.querySelector('[data-photos-grid__item-name]')   
             item.id = photos[i].id
             item_img.src = photos[i].src
+            item_name.innerHTML = photos[i].name
             photos_grid.appendChild(item)
         }
     }
