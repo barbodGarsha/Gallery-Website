@@ -13,9 +13,14 @@ const tag_container = document.querySelector('[data-gallery__tag-container]')
 
 const photos_grid = document.querySelector('[data-gallery__viewer__photos-grid]')
 
-const uplaod = document.querySelector('[data-upload]')
-const uplaod_input = document.querySelector('[data-upload__btn__file-input]')
-const uplaod_close_btn = document.querySelector('[data-upload__close-btn]')
+const upload = document.querySelector('[data-upload]')
+const upload_file_input = document.querySelector('[data-upload__btn__file-input]')
+const upload_name_input = document.querySelector('[data-upload__name-input]')
+const upload_close_btn = document.querySelector('[data-upload__close-btn]')
+const upload_tag_container = document.querySelector('[data-upload__tag-container]')
+const upload_search_bar__input = document.querySelector('[data-upload__search-bar__input]')
+const upload_search_bar__recs = document.querySelector('[data-upload__search-bar__recommendations]')
+const upload_search_bar__recs__conatiner = document.querySelector('[data-upload__search-bar__recommendations__container]')
 
 
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
@@ -24,7 +29,8 @@ const uplaod_close_btn = document.querySelector('[data-upload__close-btn]')
 //TESTING...
 let tags = [{id: 'ABSTRACT', name: 'Abstract'}, {id: 'ART', name: 'Art'}, {id: 'TEST', name: 'Test'}]
 let chosen_tags = []
-let photos = [{id: '1', tags: ['ABSTRACT', 'ART'], name: 'Test', src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], name: 'Test2', src: 'images/Test02.jpg'}]
+let upload_chosen_tags = []
+let photos = [{id: '1', tags: [], name: 'Test', src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], name: 'Test2', src: 'images/Test02.jpg'}]
 
 let uploaded_file
 
@@ -35,35 +41,114 @@ render_gallery_viewer(chosen_tags)
 
 
 //EVENTS
-uplaod_close_btn.addEventListener('click', function(e) {
-    uplaod.classList.add('upload--hide')
-    //TODO: reset upload form 
+upload_search_bar__recs.addEventListener('mousedown', function(e){
+    if(e.target.hasAttribute('data-search-bar__recommendations__item')) { 
+        filter = get_tag_by_id(e.target.id)
+        if(upload_chosen_tags.filter(function(e) { return e.id === filter.id }).length < 1) {    
+            upload_chosen_tags.push(filter)
+            const tag = document.importNode(tag_template.content, true)
+            const tag_p = tag.querySelector('[data-tag__txt]')   
+            tag_p.id = filter.id
+            tag_p.innerText = filter.name
+            tag.querySelector('[data-tag]').classList.add('tag--dark')
+            
+            upload_tag_container.appendChild(tag)
+        }
+        upload_search_bar__input.value = ''
+    }
 })
 
-uplaod_input.addEventListener('change', function(e) {
+upload_search_bar__input.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {
+        filter = create_tag(e.target.value)
+        if(upload_chosen_tags.filter(function(e) { return e.id === filter.id }).length < 1) {    
+            upload_chosen_tags.push(filter)
+            const tag = document.importNode(tag_template.content, true)
+            const tag_p = tag.querySelector('[data-tag__txt]')   
+            tag_p.id = filter.id
+            tag_p.innerText = filter.name
+            tag.querySelector('[data-tag]').classList.add('tag--dark')
+            
+            upload_tag_container.appendChild(tag)
+        }
+        e.target.value = ''
+    }
+})
+
+upload_search_bar__input.addEventListener('focus', function(e){
+    upload_search_bar__recs.style.display = 'block'
+    render_search_results('', upload_search_bar__recs__conatiner)
+})
+  
+upload_search_bar__input.addEventListener('blur', function(e){
+    upload_search_bar__recs.style.display = ''
+})
+
+upload_search_bar__input.addEventListener('input', function(e) {
+    var filter, li, i, txtValue
+    var found_smth = false
+    filter = e.target.value.toUpperCase();
+    render_search_results(filter, upload_search_bar__recs__conatiner)
+})
+
+
+upload_tag_container.addEventListener('click', function(e) {
+    if(e.target.hasAttribute('data-tag__close-btn')) {
+        const tag_p = e.target.parentElement.querySelector('[data-tag__txt]')
+        remove_filter_by_id(tag_p.id, upload_chosen_tags)
+        e.target.parentElement.remove()
+       //TODO: Tags filter changes and the photos that are being shown need to change
+    }
+})
+
+
+upload_close_btn.addEventListener('click', function(e) {
+    upload.classList.add('upload--hide')
+    upload_chosen_tags = []
+    clear_element(upload_tag_container)
+    upload_name_input.value = ''
+    //TODO: reset upload form data
+})
+
+upload_file_input.addEventListener('change', function(e) {
     uploaded_file = 'http://127.0.0.1:8887/' + e.target.value.split(/(\\|\/)/g).pop() 
 })
 
-uplaod.addEventListener('click', function(e) {  
+upload.addEventListener('click', function(e) {  
+    
     if(e.target.hasAttribute('data-upload__save-btn')) {
-        if(uplaod_input.files.length == 1) {    
-            photos.push(create_photo(Date.now.toString(), uploaded_file, ['TEST', 'ART']))
+        if(upload_file_input.files.length == 1) {
+            photos.push(create_photo(upload_name_input.value, uploaded_file, create_tag_id_array(upload_chosen_tags)))
+            update_tags()
         }
-        uplaod.classList.add('upload--hide')
+        else {
+            alert('Please upload a photo')
+            return
+        }
+
+        if(is_empty_or_spaces(upload_name_input.value)) { 
+            alert('Please give the photo a name')
+            return
+        } 
+        upload.classList.add('upload--hide')
+        upload_chosen_tags = []
+        clear_element(upload_tag_container)
+        upload_name_input.value = ''
         render_gallery_viewer(chosen_tags)
     } 
+    
 })
 
 photos_grid.addEventListener('click', function(e) {
     if(e.target.hasAttribute('data-upload-a-photo')) {
-        uplaod.classList.remove('upload--hide')
+        upload.classList.remove('upload--hide')
     }    
 })
 
 tag_container.addEventListener('click', function(e) {
     if(e.target.hasAttribute('data-tag__close-btn')) {
         const tag_p = e.target.parentElement.querySelector('[data-tag__txt]')
-        remove_filter_by_id(tag_p.id)
+        remove_filter_by_id(tag_p.id, chosen_tags)
         e.target.parentElement.remove()
         render_gallery_viewer(chosen_tags)
        //TODO: Tags filter changes and the photos that are being shown need to change
@@ -82,12 +167,13 @@ search_bar__recs.addEventListener('mousedown', function(e){
             tag_container.appendChild(tag)
             render_gallery_viewer(chosen_tags)
         }
+        search_bar__input.value = ''
     }
 })
 
 search_bar__input.addEventListener('focus', function(e){
     search_bar__recs.style.display = 'block'
-    render_search_results('')
+    render_search_results('', search_bar__recs__conatiner)
 })
   
 search_bar__input.addEventListener('blur', function(e){
@@ -97,13 +183,30 @@ search_bar__input.addEventListener('blur', function(e){
 search_bar__input.addEventListener('input', function(e) {
     var filter, li, i, txtValue
     var found_smth = false
-    filter = e.target.value.toUpperCase();
-    render_search_results(filter)
+    filter = e.target.value.toUpperCase()
+    render_search_results(filter, search_bar__recs__conatiner)
     
 })
 
 
 //FUNCTIONS
+function update_tags() {
+    for (let i = 0; i < upload_chosen_tags.length; i++) {
+        new_tag = true
+        for (let j = 0; j < tags.length; j++) {
+            if(upload_chosen_tags[i].id === tags[j].id) { new_tag = false}
+        }
+        if(new_tag) { tags.push(upload_chosen_tags[i])}
+    }
+}
+
+function create_tag_id_array(tag_list) {
+    id_array = []
+    for (let i = 0; i < tag_list.length; i++) {
+        id_array.push(tag_list[i].id)
+    }
+    return id_array
+}
 
 function create_tag(name) {
     return { id: name.toUpperCase(), name: name}
@@ -115,18 +218,18 @@ function create_photo(photo_name, path, photo_tags) {
 }
 
 //TODO: better system for search results is needed
-function render_search_results(filter) {
-    clear_element(search_bar__recs__conatiner)
+function render_search_results(filter, search_bar_rec_container_el) {
+    clear_element(search_bar_rec_container_el)
     if(!is_empty_or_spaces(filter)) {
         
-        for (i = 0; i < tags.length; i++) {
+        for (let i = 0; i < tags.length; i++) {
             if (tags[i].name.toUpperCase().indexOf(filter) > -1) {
                 
                 const result = document.importNode(results_template.content, true)
                 const result_p = result.querySelector('[data-search-bar__recommendations__item]')   
                 result_p.id = tags[i].id
                 result_p.innerText = tags[i].name
-                search_bar__recs__conatiner.appendChild(result)
+                search_bar_rec_container_el.appendChild(result)
 
                 found_smth = true
             }
@@ -136,15 +239,16 @@ function render_search_results(filter) {
         else { search_bar__recs.style.display = 'block' }
     }
     else {
-        for (i = 0; i < tags.length; i++) {
+        for (let i = 0; i < tags.length; i++) {
             const result = document.importNode(results_template.content, true)
             const result_p = result.querySelector('[data-search-bar__recommendations__item]')   
             result_p.id = tags[i].id
             result_p.innerText = tags[i].name
-            search_bar__recs__conatiner.appendChild(result)
+            search_bar_rec_container_el.appendChild(result)
         }
     }
 }
+
 
 function render_gallery_viewer(filters) {
     clear_element(photos_grid)
@@ -177,16 +281,15 @@ function is_empty_or_spaces(str){
 }
 
 function get_tag_by_id(id) {
-    for (i = 0; i < tags.length; i++) {
+    for (let i = 0; i < tags.length; i++) {
         if (tags[i].id == id) { return tags[i] }
     }
 }
 
-
-function remove_filter_by_id(id) {
-    for (i = 0; i < chosen_tags.length; i++) {
-        if (chosen_tags[i].id == id) { 
-            chosen_tags.splice(i, 1);
+function remove_filter_by_id(id, tags_list) {
+    for (let i = 0; i < tags_list.length; i++) {
+        if (tags_list[i].id == id) { 
+            tags_list.splice(i, 1);
         }
     }
 }
