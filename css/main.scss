@@ -38,6 +38,30 @@ $photos-size: 25rem;
 $photos-grid-gab: 1rem;
 $photos-grid-size: 81rem; //(photos-size * 3) + (photos-grid-gab * 6)
 
+//ANIMATIONS-----------------------------------------------------
+$load-animation-ms: 500ms;
+$hero-deisgn-hover: 1200ms;
+
+@keyframes hero-design-load-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {  
+        opacity: 1;
+        transform: 0;
+    }
+}
+@keyframes hero-design-load-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {  
+        opacity: 1;
+        transform: 0;
+    }
+}
 
 //RESET EVERYTHING-----------------------------------------------
 body {
@@ -101,6 +125,7 @@ li {
 
 
 .hero {
+    overflow: hidden;
     width: 100%;
     background-color: $color-05 ;
 
@@ -141,11 +166,28 @@ li {
     }
 
     .hero__design {
+        position: relative;
         width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+        .hero__design-part {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        transition: $hero-deisgn-hover;
     }
+    .hero__design:hover {
+        transform: scale(1.05);
+    }
+}
+
+.hero-design-part--animation-down {
+    animation: hero-design-load-down $load-animation-ms ease-out forwards;
+}
+.hero-design-part--animation-up {
+    animation: hero-design-load-up $load-animation-ms ease-out forwards;
 }
 
 .footer {

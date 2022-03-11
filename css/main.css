@@ -1,4 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@-webkit-keyframes hero-design-load-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: 0;
+            transform: 0;
+  }
+}
+@keyframes hero-design-load-down {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: 0;
+            transform: 0;
+  }
+}
+
+@-webkit-keyframes hero-design-load-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: 0;
+            transform: 0;
+  }
+}
+
+@keyframes hero-design-load-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: 0;
+            transform: 0;
+  }
+}
+
 body {
   background-color: #F3F6F4;
   margin: 0;
@@ -65,6 +116,7 @@ li {
 }
 
 .hero {
+  overflow: hidden;
   width: 100%;
   background-color: #F3F6F4;
 }
@@ -116,6 +168,7 @@ li {
 }
 
 .hero .hero__design {
+  position: relative;
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -126,6 +179,29 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: 1200ms;
+  transition: 1200ms;
+}
+
+.hero .hero__design .hero__design-part {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero .hero__design:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.hero-design-part--animation-down {
+  -webkit-animation: hero-design-load-down 500ms ease-out forwards;
+          animation: hero-design-load-down 500ms ease-out forwards;
+}
+
+.hero-design-part--animation-up {
+  -webkit-animation: hero-design-load-up 500ms ease-out forwards;
+          animation: hero-design-load-up 500ms ease-out forwards;
 }
 
 .footer {
