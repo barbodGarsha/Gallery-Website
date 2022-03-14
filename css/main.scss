@@ -371,6 +371,7 @@ li {
     }
 
     .photos-grid__item__details {
+        pointer-events: none;
         position: absolute;
         width: 100%;
         height: 50%;
@@ -525,5 +526,41 @@ li {
 
 }
 .upload--hide {
+    display: none;
+}
+
+.photo-viewer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-01-A70;
+    .photo-viewer__container {
+        width: 50%;
+        .photo-viewer__img {
+            width: 100%;
+            box-shadow: 0 0 45px 20px $color-01;
+        }
+    }
+}
+.photo-viewer--vertical {
+    .photo-viewer__container {
+        width: initial;
+        height: 60%;
+
+        .photo-viewer__img {
+            width: initial;
+            height: 100%;
+            box-shadow: 0 0 45px 20px $color-01;
+        }
+    }
+}
+.photo-viewer--hide {
     display: none;
 }

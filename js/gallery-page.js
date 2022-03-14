@@ -22,6 +22,9 @@ const upload_search_bar__input = document.querySelector('[data-upload__search-ba
 const upload_search_bar__recs = document.querySelector('[data-upload__search-bar__recommendations]')
 const upload_search_bar__recs__conatiner = document.querySelector('[data-upload__search-bar__recommendations__container]')
 
+const photo_viewer = document.querySelector('[data-photo-viewer]')
+const photo_viewer__img = document.querySelector('[data-photo-viewer__img]')
+
 
 //const LOCAL_STORAGE_TAGS = 'gallery.tags'
 //let tags = JSON.parse(localStorage.getItem(LOCAL_STORAGE_TAGS)) || []
@@ -140,9 +143,16 @@ upload.addEventListener('click', function(e) {
 })
 
 photos_grid.addEventListener('click', function(e) {
+    console.log(e.target)
     if(e.target.hasAttribute('data-upload-a-photo')) {
         upload.classList.remove('upload--hide')
-    }    
+    }   
+    else if(e.target.hasAttribute('data-photos-grid__img')) {
+        let selected_photo = get_photo_by_id(e.target.id)
+        photo_viewer__img.src = selected_photo.src
+        if(is_img_vertical(e.target)) { photo_viewer.classList.add('photo-viewer--vertical') }
+        photo_viewer.classList.remove('photo-viewer--hide')
+    }   
 })
 
 tag_container.addEventListener('click', function(e) {
@@ -190,6 +200,10 @@ search_bar__input.addEventListener('input', function(e) {
 
 
 //FUNCTIONS
+function is_img_vertical(img_el) {
+    if(img_el.height > img_el.width) { return true}
+}
+
 function update_tags() {
     for (let i = 0; i < upload_chosen_tags.length; i++) {
         new_tag = true
@@ -261,7 +275,7 @@ function render_gallery_viewer(filters) {
             const item = document.importNode(photos_grid__item.content, true)
             const item_img = item.querySelector('[data-photos-grid__img]')   
             const item_name = item.querySelector('[data-photos-grid__item-name]')   
-            item.id = photos[i].id
+            item_img.id = photos[i].id
             item_img.src = photos[i].src
             item_name.innerHTML = photos[i].name
             photos_grid.appendChild(item)
@@ -285,6 +299,12 @@ function is_empty_or_spaces(str){
 function get_tag_by_id(id) {
     for (let i = 0; i < tags.length; i++) {
         if (tags[i].id == id) { return tags[i] }
+    }
+}
+
+function get_photo_by_id(id) {
+    for (let i = 0; i < photos.length; i++) {
+        if (photos[i].id == id) { return photos[i] }
     }
 }
 
