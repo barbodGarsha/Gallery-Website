@@ -44,6 +44,10 @@ render_gallery_viewer(chosen_tags)
 
 
 //EVENTS
+photo_viewer.addEventListener('click', function(e) {
+    if(e.target === photo_viewer) { photo_viewer.classList.add('photo-viewer--hide') }
+})
+
 upload_search_bar__recs.addEventListener('mousedown', function(e){
     if(e.target.hasAttribute('data-search-bar__recommendations__item')) { 
         filter = get_tag_by_id(e.target.id)
@@ -80,7 +84,7 @@ upload_search_bar__input.addEventListener('keyup', function (e) {
 
 upload_search_bar__input.addEventListener('focus', function(e){
     upload_search_bar__recs.style.display = 'block'
-    render_search_results('', upload_search_bar__recs__conatiner)
+    render_search_results('', upload_search_bar__recs__conatiner, upload_search_bar__recs)
 })
   
 upload_search_bar__input.addEventListener('blur', function(e){
@@ -91,7 +95,7 @@ upload_search_bar__input.addEventListener('input', function(e) {
     var filter, li, i, txtValue
     var found_smth = false
     filter = e.target.value.toUpperCase();
-    render_search_results(filter, upload_search_bar__recs__conatiner)
+    render_search_results(filter, upload_search_bar__recs__conatiner, upload_search_bar__recs)
 })
 
 
@@ -143,7 +147,6 @@ upload.addEventListener('click', function(e) {
 })
 
 photos_grid.addEventListener('click', function(e) {
-    console.log(e.target)
     if(e.target.hasAttribute('data-upload-a-photo')) {
         upload.classList.remove('upload--hide')
     }   
@@ -183,7 +186,7 @@ search_bar__recs.addEventListener('mousedown', function(e){
 
 search_bar__input.addEventListener('focus', function(e){
     search_bar__recs.style.display = 'block'
-    render_search_results('', search_bar__recs__conatiner)
+    render_search_results('', search_bar__recs__conatiner, search_bar__recs)
 })
   
 search_bar__input.addEventListener('blur', function(e){
@@ -194,7 +197,7 @@ search_bar__input.addEventListener('input', function(e) {
     var filter, li, i, txtValue
     var found_smth = false
     filter = e.target.value.toUpperCase()
-    render_search_results(filter, search_bar__recs__conatiner)
+    render_search_results(filter, search_bar__recs__conatiner, search_bar__recs)
     
 })
 
@@ -232,8 +235,9 @@ function create_photo(photo_name, path, photo_tags) {
 }
 
 //TODO: better system for search results is needed
-function render_search_results(filter, search_bar_rec_container_el) {
+function render_search_results(filter, search_bar_rec_container_el, search_bar__recs_el) {
     clear_element(search_bar_rec_container_el)
+    found_smth = false
     if(!is_empty_or_spaces(filter)) {
         
         for (let i = 0; i < tags.length; i++) {
@@ -249,8 +253,8 @@ function render_search_results(filter, search_bar_rec_container_el) {
             }
         }
 
-        if(!found_smth) { search_bar__recs.style.display = '' } 
-        else { search_bar__recs.style.display = 'block' }
+        if(!found_smth) { search_bar__recs_el.style.display = '' } 
+        else { search_bar__recs_el.style.display = 'block' }
     }
     else {
         for (let i = 0; i < tags.length; i++) {
