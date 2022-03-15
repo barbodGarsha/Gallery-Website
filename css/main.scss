@@ -434,6 +434,8 @@ li {
         align-items: center;
         background-color: $color-01;
 
+        transition: $animation-speed-M;
+
         .gallery__search-container {
             width: 95%;
             display: flex;
@@ -693,6 +695,13 @@ li {
         }
         
     }
+
+    
+.gallery {
+    .gallery__sidebar:hover {
+        width: 70%; 
+    }
+}
 
 }
 
