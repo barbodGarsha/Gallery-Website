@@ -33,10 +33,10 @@ $tag-padding-left-right: .9rem;
 $container-padding-up-down: .4rem;
 $container-padding-left-right: .9rem;
 
-//NOTE: maybe using percentages would be better
-$photos-size: 25rem;
-$photos-grid-gab: 1rem;
-$photos-grid-size: 81rem; //(photos-size * 3) + (photos-grid-gab * 6)
+//NOTE: this needs to be calculated based on the ratio between gallery__sidebar and the gallery__viewer
+$photos-size: 23.66vw;
+$photos-grid-gab: 1.5vw;
+$photos-grid-size: 80vw; //(photos-size * 3) + (photos-grid-gab * 6)
 
 //ANIMATIONS-----------------------------------------------------
 $load-animation-ms: 500ms;
@@ -196,6 +196,7 @@ li {
         display: flex;
         justify-content: center;
         align-items: center;
+
         .hero__design-part {
             position: absolute;
             top: 0;
@@ -364,9 +365,9 @@ li {
             flex-shrink: 0;
             min-width: 100%;
             min-height: 100%;
-            
-            max-width: 150%;
-            max-height: 150%;
+            height: auto;
+            max-width: 200%;
+            max-height: 200%;
         }
     }
     .photos-grid__item:hover {
@@ -588,4 +589,11 @@ li {
 }
 .photo-viewer--hide {
     display: none;
+}
+
+@media screen and (max-width: 1360px) {
+
+    :root {
+        font-size: 1rem;
+    }
 }
