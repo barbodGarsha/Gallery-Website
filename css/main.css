@@ -521,6 +521,7 @@ li {
 .gallery .gallery__viewer {
   margin-top: 1rem;
   width: 80%;
+  height: 85%;
   background-color: #F3F6F4;
   display: -webkit-box;
   display: -ms-flexbox;
