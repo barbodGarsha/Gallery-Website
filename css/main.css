@@ -436,6 +436,7 @@ li {
 }
 
 .photos-grid .photos-grid__item--empty .photos-grid__upload {
+  pointer-events: none;
   font-size: 1.2rem;
   color: #F3F6F4;
 }
@@ -722,6 +723,9 @@ li {
   :root {
     font-size: .8rem;
   }
+  .upload .upload__container {
+    width: 35%;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -734,6 +738,9 @@ li {
   :root {
     font-size: .6rem;
   }
+  .upload .upload__container {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 620px) {
@@ -745,6 +752,10 @@ li {
 @media screen and (max-width: 550px) {
   :root {
     font-size: .4rem;
+  }
+  .upload .upload__container {
+    width: 80%;
+    height: 80%;
   }
 }
 

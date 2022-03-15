@@ -388,6 +388,7 @@ li {
         justify-content: center;
         align-items: center;
         .photos-grid__upload {
+            pointer-events: none;
             font-size: $font-size-L;
             color: $color-05;
         }
@@ -609,6 +610,12 @@ li {
     :root {
         font-size: .8rem;
     }
+
+    .upload {
+        .upload__container {
+            width: 35%;
+        }
+    }
 }
 
 @media screen and (max-width: 850px) {
@@ -623,6 +630,12 @@ li {
     :root {
         font-size: .6rem;
     }
+
+    .upload {
+        .upload__container {
+            width: 50%;
+        }
+    }
 }
 
 @media screen and (max-width: 620px) {
@@ -636,6 +649,14 @@ li {
 
     :root {
         font-size: .4rem;
+    }
+
+    
+    .upload {
+        .upload__container {
+            width: 80%;
+            height: 80%;
+        }
     }
 }
 
@@ -672,6 +693,7 @@ li {
         }
         
     }
+
 }
 
 @media screen and (max-width: 350px) {
