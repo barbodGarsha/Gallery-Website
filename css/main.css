@@ -251,11 +251,6 @@ li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /*
-   .search-bar__recommendations::-webkit-scrollbar {
-    display: none;
-    }
-   */
 }
 
 .search-bar .search-bar__input {
@@ -300,6 +295,10 @@ li {
 
 .search-bar .search-bar__recommendations .search-bar__recommendations__container .search-bar__recommendations__item:hover {
   background-color: #C37956;
+}
+
+.search-bar .search-bar__recommendations::-webkit-scrollbar {
+  display: none;
 }
 
 .search-bar--dark .search-bar__input {
