@@ -520,6 +520,10 @@ li {
   overflow-y: scroll;
 }
 
+.gallery .gallery__viewer::-webkit-scrollbar {
+  display: none;
+}
+
 .upload {
   position: absolute;
   width: 100vw;

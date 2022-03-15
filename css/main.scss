@@ -448,6 +448,9 @@ li {
         justify-content: center;  
         overflow-y: scroll;
     }
+    .gallery__viewer::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .upload {
