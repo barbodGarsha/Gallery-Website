@@ -105,9 +105,29 @@ li {
     }
 
     .header__logo {
+        position: relative;
         color: $color-05;
         font-weight: bold;
         font-size: $font-size-L;
+        
+    }
+    .header__underline {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;  
+        margin-left: auto; 
+        margin-right: auto; 
+        transform: translateY(.5rem);
+        width: 0%;
+        height: 2px;
+        background-color: $color-02;
+        transition: $animation-speed-M;
+    }
+    .header__logo:hover {
+        .header__underline {
+            width: 100%;
+        }
     }
 
     .header__logo--color-primary {
@@ -115,12 +135,16 @@ li {
     }
 
     .header__my-account-btn {
+        position: relative;
         color: $color-05;
         font-size: $font-size-L;
     }
 
     .header__my-account-btn:hover {
-        color: $color-02;
+        color: $color-02; 
+        .header__underline {
+            width: 100%;
+        }
     }
 }
 

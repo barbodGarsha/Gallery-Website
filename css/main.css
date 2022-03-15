@@ -97,9 +97,30 @@ li {
 }
 
 .header .header__logo {
+  position: relative;
   color: #F3F6F4;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.header .header__underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  -webkit-transform: translateY(0.5rem);
+          transform: translateY(0.5rem);
+  width: 0%;
+  height: 2px;
+  background-color: #C37956;
+  -webkit-transition: 350ms;
+  transition: 350ms;
+}
+
+.header .header__logo:hover .header__underline {
+  width: 100%;
 }
 
 .header .header__logo--color-primary {
@@ -107,12 +128,17 @@ li {
 }
 
 .header .header__my-account-btn {
+  position: relative;
   color: #F3F6F4;
   font-size: 1.2rem;
 }
 
 .header .header__my-account-btn:hover {
   color: #C37956;
+}
+
+.header .header__my-account-btn:hover .header__underline {
+  width: 100%;
 }
 
 .hero {
