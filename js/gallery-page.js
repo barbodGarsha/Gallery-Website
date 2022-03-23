@@ -92,9 +92,7 @@ upload_search_bar__input.addEventListener('blur', function(e){
 })
 
 upload_search_bar__input.addEventListener('input', function(e) {
-    var filter, li, i, txtValue
-    var found_smth = false
-    filter = e.target.value.toUpperCase();
+    var filter = e.target.value.toUpperCase()
     render_search_results(filter, upload_search_bar__recs__conatiner, upload_search_bar__recs)
 })
 
@@ -194,9 +192,7 @@ search_bar__input.addEventListener('blur', function(e){
 })
 
 search_bar__input.addEventListener('input', function(e) {
-    var filter, li, i, txtValue
-    var found_smth = false
-    filter = e.target.value.toUpperCase()
+    var filter = e.target.value.toUpperCase()
     render_search_results(filter, search_bar__recs__conatiner, search_bar__recs)
     
 })
