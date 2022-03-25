@@ -33,7 +33,7 @@ const photo_viewer__img = document.querySelector('[data-photo-viewer__img]')
 let tags = [{id: 'ABSTRACT', name: 'Abstract'}, {id: 'ART', name: 'Art'}, {id: 'TEST', name: 'Test'}]
 let chosen_tags = []
 let upload_chosen_tags = []
-let photos = [{id: '1', tags: ['ART', 'ABSTRACT'], name: 'Test', src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], name: 'Test2', src: 'images/Test02.jpg'},]
+let photos = [{id: '1', tags: ['ART', 'ABSTRACT'], name: 'Test', src: 'images/Test.jpeg'}, {id: '2', tags: ['ART'], name: 'Test2', src: 'images/Test02.jpg'}]
 
 let uploaded_file
 
